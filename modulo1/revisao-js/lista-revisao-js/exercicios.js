@@ -33,12 +33,21 @@ function retornaNumerosPares(array) {
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
-    
+    const retornaPares = (array) => {
+        return array % 2 === 0
+    }
+    const arrPares = array.filter(retornaPares)
+
+    const retornaParesElevados = (array) =>{
+        return array ** 2
+    }
+    const arrElevados = arrPares.map(retornaParesElevados)
+        return arrElevados
 }
 
 // EXERCÍCIO 06
 function retornaMaiorNumero(array) {
-  
+
 }
 
 // EXERCÍCIO 07
