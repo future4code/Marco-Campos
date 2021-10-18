@@ -24,12 +24,16 @@ function retornaArrayOrdenado(array) {
 
 // EXERCÍCIO 04
 function retornaNumerosPares(array) {
-
+    const retornaPares = (array) => {
+        return array % 2 === 0
+    }
+    const arrPares = array.filter(retornaPares)
+    return arrPares
 }
 
 // EXERCÍCIO 05
 function retornaNumerosParesElevadosADois(array) {
- 
+    
 }
 
 // EXERCÍCIO 06
