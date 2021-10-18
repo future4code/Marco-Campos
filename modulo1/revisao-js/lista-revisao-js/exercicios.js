@@ -90,13 +90,21 @@ function retornaNPrimeirosPares(n) {
         numeroPar += 2
         arr.push(numeroPar)
     }
-    
+
     return arr
 }
 
 // EXERCÍCIO 09
 function classificaTriangulo(ladoA, ladoB, ladoC) {
-
+    if(ladoA !== ladoB && ladoB !== ladoC && ladoA !== ladoC){
+        return "Escaleno"
+    }
+    else if(ladoA === ladoB && ladoA === ladoC && ladoB === ladoC){
+        return "Equilátero"
+    }
+    else if(ladoA === ladoB || ladoA === ladoC || ladoB === ladoC){
+        return "Isósceles"
+    }
 }
 
 // EXERCÍCIO 10
