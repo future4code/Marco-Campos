@@ -163,12 +163,11 @@ function retornaContasComSaldoAtualizado(contas) {
         return{...conta, saldoTotal: saldo - soma, compras: []}
     }
     return contas.map(contaComSaldoAtualizado)
-
 }
 
 // EXERCÍCIO 15A
 function retornaArrayOrdenadoAlfabeticamente(consultas) {
-  
+
 }
 
 // EXERCÍCIO 15B
