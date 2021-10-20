@@ -5,32 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Apple store online</title>
+    <link rel="stylesheet" type="text/css" href="./index.css">
 </head>
+
 <body>
-    <div>
-        <h1>Bem-vind@ ao <em>Apple Store</em>!</h1>
-        <p>O melhor jeito de comprar o que você ama.</p>
-    </div>
-
-    <div>
-        <a href="index.html">Página Inicial</a>
-        <a href="ctrl-estoque.html">Controle de Estoque</a>
-        <a href="add-produto.html">Adicionar Produto</a>
-        <a href="funcionarios.html">Funcionários</a>
-    </div>
-
-    <div>
-        <!-- ADICIONAR INFORMAÇOES SOBRE SUA LOJINHA -->
-    </div>
-
-    <div>
-        <p>Siga-nos nas redes sociais!</p>
-
+    <header class="topo">
         <div>
-            <img src="https://image.flaticon.com/icons/png/512/25/25305.png"/>
-            <img src="https://image.flaticon.com/icons/png/512/25/25425.png"/>
-            <img src="https://image.flaticon.com/icons/png/512/8/8800.png"/>
+            <h1>Bem-vindo ao <em>Apple Store</em>!</h1>
+            <p>O melhor jeito de comprar o que você ama.</p>
         </div>
-    </div>
+    </header>
+
+    <nav class="nav">
+        <ul>
+            <li> <a href="index.html">Página Inicial</a> </li>
+
+            <li> <a href="ctrl-estoque.html">Controle de Estoque</a> </li>
+
+            <li> <a href="add-produto.html">Adicionar Produto</a> </li>
+
+            <li> <a href="funcionarios.html">Funcionários</a> </li>
+        </ul>
+    </nav>
+
+    <main class="corpoDoSite">
+        <div>
+            <ul>
+                <li><img id="imac" src="https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/imac-27-selection-hero-202008?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1594932848000" alt="">Diga olá para o novo iMac.Inspirado no que a Apple tem de melhor e elevado à potência do chip M1. Fica lindo em qualquer lugar. E se encaixa perfeitamente na sua vida.</li>
+                <li><img id="airpod" src="https://images.tcdn.com.br/img/img_prod/1021142/apple_airpods_pro_mwp22am_a_fone_true_wireless_bluetooth_carregamento_sem_fio_337_1_5976c66db117242d5a11a0c79fd20275_20210629154518.jpg" alt="">Os AirPods Pro foram desenvolvidos com Cancelamento Ativo de Ruído para proporcionar um som envolvente. Com o modo Ambiente, você pode escutar o som ao seu redor, e o ajuste personalizável traz conforto para o dia todo. Assim como os AirPods, os AirPods Pro se conectam ao seu iPhone ou Apple Watch em um passe de mágica. E estão prontos para usar assim que saem do estojo.</li>
+            </ul>
+        </div>
+
+
+    
+        <div class="redesSociais">                                      
+           <p>Siga-nos nas redes sociais!</p>
+
+           <div>
+               <img id="facebook" src="https://image.flaticon.com/icons/png/512/25/25305.png"/>
+               <img id="instagram" src="https://image.flaticon.com/icons/png/512/25/25425.png"/>
+               <img id="twitter" src="https://image.flaticon.com/icons/png/512/8/8800.png"/>
+           </div>
+        </div>
+    </main>
+
+    <footer>
+        <a href="">voltar para o inicio</a>    <!--Fazer a referencia pro top do site-->
+        <p>Desenvolvido por Marco</p>
+    </footer>
+
 </body>
 </html>
