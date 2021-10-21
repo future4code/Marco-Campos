@@ -17,7 +17,12 @@ h2 {
 }
 
 input {
-    height: 20px;
+    border-style: outset;
+    border-width: medium;
+    border-left: white;
+    border-right: white;
+    border-top: white;
+    height: 10px;
     width: 500px;
 }
 
