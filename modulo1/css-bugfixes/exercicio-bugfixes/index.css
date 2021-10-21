@@ -175,3 +175,11 @@ ol{
     margin: 0 auto;
     width: 500px;
 }
+
+#lupa:hover {
+    opacity: 0.5;
+}
+
+#lupa:active {
+    opacity: 1;
+}
