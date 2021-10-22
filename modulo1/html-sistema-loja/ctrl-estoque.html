@@ -4,66 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./estoque.css">
     <title>Controle de Estoque</title>
 </head>
 <body>
-    <div>
-        <p>Nome da lojinha</p>
-    </div>
-    
-    <div>
-        <a href="index.html">Página Inicial</a>
-        <a href="ctrl-estoque.html">Controle de Estoque</a>
-        <a href="add-produto.html">Adicionar Produto</a>
-        <a href="funcionarios.html">Funcionários</a>
-    </div>
 
-    <h2>Controle de Estoque</h2>
+    <header class="topo">
+        <div>
+            <p>Apple Store</p>
+        </div>
+    </header>
 
-    <table>
-        <tr>
-            <th><img src="https://images-americanas.b2w.io/produtos/01/00/img/1919096/1/1919096191_1SZ.jpg" alt="Computador desktop apple"></th>
-            <th>iMac 21,5" FHD Intel Core I5 (8GB 256GB SSD)</th>
-            <th>Preço (R$ 9.599,37)</th>
-            <th>Quantidade disponível:10</th>
-        </tr>
+    <nav class="nav">
+        <ul>
+            <li> <a href="index.html">Página Inicial</a></li>
 
-        <tr>
-            <td><img src="https://images-americanas.b2w.io/produtos/01/00/img/1260899/3/1260899382_3SZ.jpg" alt="fone de ouvido bluetooth apple air pods"/></td>
-            <td> AirPods Pro - Apple </td>
-            <td> Preço (R$ 1.599,00) </td>
-            <td>Quantidade disponível:10</td>
-        </tr>
+            <li> <a href="ctrl-estoque.html">Controle de Estoque</a></li>
 
-        <tr>
-            <td><img src="https://images-americanas.b2w.io/produtos/4168138636/imagens/iphone-12-pro-max-apple-256gb-azul-pacifico-tela-6-7-camera-tripla-12mp-ios/4168138636_1_xlarge.jpg" alt="smartfone apple iphone 12"/></td>
-            <td> IPhone 12 Pro Max Apple (256GB) Azul-pacífico tela 6,7 Câmera tripla 12MP iOS </td>
-            <td> Preço (R$ 10.451,97) </td>
-            <td>Quantidade disponível:10</td>
-        </tr>
+            <li> <a href="add-produto.html">Adicionar Produto</a></li>
 
-        <tr>
-            <td><img src="https://images-americanas.b2w.io/produtos/01/00/img/2520061/5/2520061536_1SZ.jpg" alt="notebook apple"/></td>
-            <td> MacBook Air 13" Apple M1 (8GB 256GB) Prateado </td>
-            <td> Preço (R$ 8.027,30) </td>
-            <td>Quantidade disponível:10</td>
-        </tr>
+            <li> <a href="funcionarios.html">Funcionários</a></li>           
+        </ul>
+    </nav>
 
-        <tr>
-            <td><img src="https://images-americanas.b2w.io/produtos/01/00/img/3219374/8/3219374859_1SZ.jpg" alt="apple tv"/></td>
-            <td> Apple TV 4K 32gb </td>
-            <td> Preço (R$ 1.958,99) </td>
-            <td>Quantidade disponível:10</td>
-        </tr>
+    <main>
+        <div>
+            <h2>Controle de Estoque</h2>
+        </div>
+
+        <table class="produtos">
+            
+            <tr id="mac">
+                <th><img width="500px" src="https://help.apple.com/assets/5E9759AA680CE290321CE8C3/5EB1FE800946224832B512EE/pt_BR/6d6f5a90e53ce4f096fd3c7e89ac3aa7.png" alt="Computador desktop apple"></th>
+                <th>iMac 21,5" FHD Intel Core I5 (8GB 256GB SSD)</th>
+                <th>Preço (R$ 9.599,37)</th>
+                <th>Quantidade disponível:10</th>
+            </tr>
+
+            <tr id="airpp">
+                <td><img width="350px" src="https://www.neway.mobi/Public/home/img/airpods/Air2.png" alt="fone de ouvido bluetooth apple air pods"/></td>
+                <td> AirPods Pro - Apple </td>
+                <td> Preço (R$ 1.599,00) </td>
+                <td>Quantidade disponível:10</td>
+            </tr>
+
+            <tr id="iph">
+                <td><img width="400px" src="https://tecnoblog.net/wp-content/uploads/2021/02/iphone-12-pro-max-produto-700x700.png"/></td>
+                <td> IPhone 12 Pro Max Apple (256GB) Azul-pacífico tela 6,7 Câmera tripla 12MP iOS </td>
+                <td> Preço (R$ 10.451,97) </td>
+                <td>Quantidade disponível:10</td>
+            </tr>
+
+            <tr id="mcb">
+                <td><img width="500px" src="https://t.ctcdn.com.br/VKcx7ohXhyUoi_aajZYRNf5pVrc=/fit-in/400x400/filters:fill(transparent):watermark(wm/prd.png,-32p,center,1,none,15)/i413119.png" alt="notebook apple"/></td>
+                <td> MacBook Air 13" Apple M1 (8GB 256GB) Prateado </td>
+                <td> Preço (R$ 8.027,30) </td>
+                <td>Quantidade disponível:10</td>
+            </tr>
+
+            <tr id="atv">
+                <td><img width="250px" src="https://t.ctcdn.com.br/sOdj4Ls0E8WpYPylEOSjEqoM1_0=/fit-in/400x400/filters:fill(transparent):watermark(wm/prd.png,-32p,center,1,none,15)/i413398.png" alt="apple tv"/></td>
+                <td> Apple TV 4K 32gb </td>
+                <td> Preço (R$ 1.958,99) </td>
+                <td>Quantidade disponível:10</td>
+            </tr>
         
-        <tr>
-            <td> <img src="https://images-americanas.b2w.io/produtos/01/00/img/1260899/1/1260899155_1SZ.jpg" alt="fone bluetooth apple"/> </td>
-            <td> AirPods com Estojo de Recarga Sem Fio - Apple </td>
-            <td> Preço (R$ 1.299,00) </td>
-            <td>Quantidade disponível:10</td>
-        </tr>
+            <tr id="airp">
+                <td> <img width="350px" src="https://t.ctcdn.com.br/UzRHEUX5Q1tgNratVyrTLvhisbE=/fit-in/400x400/filters:fill(transparent):watermark(wm/prd.png,-32p,center,1,none,15)/i413193.png" alt="fone bluetooth apple"/> </td>
+                <td> AirPods com Estojo de Recarga Sem Fio - Apple </td>
+                <td> Preço (R$ 1.299,00) </td>
+                <td>Quantidade disponível:10</td>
+            </tr>
 
-    </table>
+        </table>
+    </main>
+
+    <footer>
+        <a href="">voltar para o inicio</a>   
+        <p>Desenvolvido por Marco</p>
+    </footer>
+
 
 </body>
 </html>

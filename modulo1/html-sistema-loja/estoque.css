@@ -1,0 +1,130 @@
+body{
+    font-style: italic;
+    font-size: 17px;
+}
+
+header div{
+    background-image: url(https://cache.tradeinn.com/images/brand-page-premium/video-4321_16.jpg);
+    background-position: center;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    height: 200px;
+    padding: 30px;
+}
+
+header{
+    color: #86868B;
+    font-size: 100px;
+    font-style: normal;
+}
+
+nav{
+    color: #86868B;
+    display: flex;
+    background-color: #1D1D1F;
+}
+
+nav ul{
+  display: flex;
+  align-items: center;  
+  width: 90%;
+  height: 50px;
+  justify-content: space-between;
+}
+
+nav ul li a {
+    color: #86868B;
+    text-decoration: none;
+    border-radius: 5px;
+
+}
+
+nav ul li a:hover {
+    transition: all ease 0.5s;
+    background-color:white;
+
+}
+
+main div {
+    display: flex;
+    justify-content: center;
+    background-color: #1d1d1f;
+    color: #86868B;
+}
+
+.produtos  #mac {
+    color: #1d1d1e;
+    background-color: #86868B;
+    padding: 50px;
+}
+
+.produtos  #airpp td{
+    color: #86868B;
+    background-color: #1D1D1F;
+    padding: 50px;
+}
+
+.produtos  #iph td{
+    color: #1D1D1F;
+    background-color: #86868B;
+    padding: 50px;
+}
+
+.produtos  #mcb td{
+    color: #86868B;
+    background-color: #1D1D1F;
+    padding: 50px;
+}
+
+.produtos  #atv td{
+    color: #1D1D1F;
+    background-color: #86868B;
+    padding: 50px;
+}
+
+.produtos  #airp td{
+    color: #86868B;
+    background-color: #1D1D1F;
+    padding: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer {
+    color: #86868B;
+    display: flex;
+    background-color: #1D1D1F;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    
+}
+
+footer a{
+    text-decoration: none;
+    color: #86868b;
+    padding: 20px;
+}
+
+footer a:hover{
+    transform: scale(1.1);
+    transition: all ease 0.5s;
+    background-color: #86868b;
+    color: #1d1d1f;
+    border-radius: 10px;   
+}
