@@ -69,8 +69,12 @@ main p {
     width: 60%;
 }
 
+#ensino {
+    text-align: center;
+}
+
 footer {
     text-align: center;
     color: blanchedalmond;
-    margin-top: 50px;
+    margin: 50px;
 }

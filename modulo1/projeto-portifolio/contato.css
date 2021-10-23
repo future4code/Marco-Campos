@@ -44,14 +44,26 @@ main h1{
     margin-bottom: 150px;
 }
 
-main ul {
-    text-align: center;
-    margin: 0 auto;
+#contato{
+    text-align: center;   
 }
 
+#contato h2 {
+    font-size: 80px;
+    text-align: center;
+    margin: 20px;
+}
+
+#contato form {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    margin:  0 auto;
+}
 
 footer {
+    margin-top: 150px;
     text-align: center;
     color: blanchedalmond;
-    margin-top: 50px;
 }
+
