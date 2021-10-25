@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+}
+
+#container-principal{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+}
+
+#navegacao-topo{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 50px;
+    align-items: center;
+    background-color: mediumvioletred;
+    padding: 0 20px;
+}
+
+#navegacao-topo p strong{
+    font-size: 20px;
+    margin-left: 22px;
+}
+
+button{
+    padding: 0 5px;
+    margin-left: 88%;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+}
+
+#navegacao-lateral{
+    display: grid;
+    width: 26.5%;
+    background-color: #f2d0e0;
+}
+
+#navegacao-lateral{
+    grid-template-columns: 20% 70% 10%;
+    align-content: center;
+    justify-content: normal;
+    align-items: end;
+    justify-items: start;
+    row-gap: 20px;
+    justify-self: end;
+    padding-bottom: 60vh;
+}
+
+#navegacao-lateral .icone-lateral{
+    justify-self: center;
+}
+
+#produtos{
+    display: grid;
+    width: 100%;
+    align-content: center;
+    margin: 20px;
+    
+}
+
+.bolo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.bolo p{
+    text-align: center;
+}
+
+#produtos{
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+
+
+
+
+
+
+#rodape {
+    display: flex;
+    background-color: mediumvioletred;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+}
