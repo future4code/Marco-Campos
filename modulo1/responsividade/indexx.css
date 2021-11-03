@@ -1,0 +1,142 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+}
+
+.elemento img{
+    height: 200px;
+    width: 100%;
+}
+
+.elemento {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: normal;
+    align-items: center;
+    border: 1px solid #45525bf6;
+    color: #45525bf6;
+    box-shadow: 2px 2px 5px #45525bf6;
+}
+
+.container-principal {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    background-color: #E3E8EB;
+}
+
+#logo-labenu {
+    height: 50px;
+    padding: 0 5px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    color: #45525bf6;
+    
+}
+
+.barra-de-busca {
+    width: 50px;
+   margin-right: 20px;
+}
+
+.navegacao {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: #BCCBD5;
+    height: 60px;
+}
+
+.container-videos {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    height: 100vh;
+    gap:10px;
+    justify-items: center;
+    margin: 20px 50px;
+}
+
+.rodape{
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    flex-wrap: wrap;
+    background-color: #BCCBD5;
+    align-items: center;
+}
+
+
+
+/*pagina de video*/
+.video{
+    display: flex;
+    flex-direction: column;
+    height: 86.5vh;
+    align-content: stretch;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.container-principal-video {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    background-color: #E3E8EB;
+}
+
+
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+    .container-videos{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(10, 40vh);
+        height: auto;
+        width: 100vw;
+        max-width: 80vw;
+    }
+
+    .container-principal{
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        height: auto;
+    }
+
+    .elemento{
+        display: flex;
+        flex-direction: column;
+        height: 40vh;
+    }
+
+    #video{
+
+    height: 50vh;
+    width: 100vw;
+    }
+
+    .video{        
+        display: flex;
+        flex-direction: column;
+        height: 86.5vh;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    
+
+}
+    
