@@ -1,6 +1,15 @@
-import React from 'react';
-import Cadastro from './components/Cadastro';
-import Lista from './components/Lista';
+import React from 'react'
+import Cadastro from './components/Cadastro'
+import Lista from './components/Lista'
+import styled from 'styled-components'
+
+const Display = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin: 10px;
+`
 
 export default class App extends React.Component {
 
@@ -34,10 +43,10 @@ export default class App extends React.Component {
   render() {
 
     return (
-      <div>
+      <Display>
         <button onClick={this.TrocarDeTela}>Trocar de tela</button>
         {this.RenderizaTela()}
-      </div>
+      </Display>
     )
   }
 }

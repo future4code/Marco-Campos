@@ -1,35 +1,89 @@
-import axios from "axios";
-import React from "react";
+import axios from "axios"
+import React, { useReducer } from "react"
+import styled from "styled-components"
+
+const CardUser = styled.div`
+border: 1px solid black;
+padding: 10px;
+margin: 10px;
+width: 300px;
+display: flex;
+justify-content: space-between;
+`
+
+const ListaForm = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin: 10px;
+gap: 10px;
+`
 
 export default class Lista extends React.Component {
 
-    getUserById = () =>{
-        axios.get("https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/:id",{
+  state ={
+    usuario: []
+  }
+
+  componentDidMount() {
+    this.getAllUsers()
+  }
+
+  getAllUsers = () =>{
+      const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users"
+        
+      axios.get(url,{
             headers: {
                 Authorization : "marco-raphael-carver"
-            }
-            
+            }   
         }).then((resposta)=>{
-            console.log(resposta.data)
+            this.setState({
+              usuario: resposta.data
+            })
         }).catch((erro)=>{
-            console.log(erro.data)
+            alert("Ocorreu um problema, tente novamente!")
         })
     }
 
+  deleteUser = (id) =>{
+    const url = `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`
+    axios.delete(url, {
+      headers:{
+        Authorization: "marco-raphael-carver"
+    }
+    })
+    .then((resposta)=>{
+      alert("Usuario deletado com sucesso")
+      this.getAllUsers()
+    })
+    .catch((erro)=>{
+      alert("ocorreu um erro, tente novamente!")
+    })
+  }
+
   render() {
+
+    console.log(this.state.usuario)
+
+    const listaUser = this.state.usuario.map((user)=>{
+      return( 
+        <CardUser key={user.id} > 
+          {user.name} 
+          <button onClick={()=> this.deleteUser(user.id)}>X</button>
+        </CardUser>
+      )
+    })
+
+
     return (
-      <div>
-        <ul>
-          <li>aa</li>
-          <li>bb</li>
-        </ul>
-        <button onClick={this.getUserById}>lala</button>
+      <ListaForm>
+
+        <button onClick={this.getAllUsers}>buscar Usuario</button>
+        {listaUser}
         <hr />
 
-        <p>Procurar Usuário</p>
-        <input></input>
-        <button>Salvar edição</button>
-      </div>
+      </ListaForm>
     );
   }
 }
