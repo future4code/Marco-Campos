@@ -1,11 +1,18 @@
-import './App.css';
+import React from "react"
+import CadastroPlaylist from "./components/CadastroPlaylist"
+import ListaPlaylists from "./components/ListaPlaylists"
 
-function App() {
-  return (
+export default class App extends React.Component {
+
+render(){
+
+  return(
     <div>
-
+      <CadastroPlaylist/>
+      <ListaPlaylists/>
     </div>
-  );
+  )
 }
 
-export default App;
+}
+
