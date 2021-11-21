@@ -1,6 +1,16 @@
 import React from "react"
-// import styled from 'styled-components'
+import styled from 'styled-components'
 import axios from 'axios'
+
+const TelaCadastro = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+    gap: 5px;
+`
 
 
 export default class CadastroPlaylist extends React.Component {
@@ -26,6 +36,9 @@ export default class CadastroPlaylist extends React.Component {
         })
         .then((res)=>{
             alert("playlist cadastrada")
+            this.setState({
+                nomePlaylist: ""
+            })
         })
         .catch((err)=>{
             alert("Algo deu errado")
@@ -35,7 +48,7 @@ export default class CadastroPlaylist extends React.Component {
 render(){
 
   return(
-    <div>
+    <TelaCadastro>
         <h2> Crie sua playlist: </h2>
         <p>nome da playlist:</p>
         <input
@@ -46,7 +59,8 @@ render(){
         <button
         onClick={this.cadastrarPlaylist}
         >cadastrar</button>
-    </div>
+        
+    </TelaCadastro>
   )
 }
 
