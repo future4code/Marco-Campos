@@ -34,6 +34,7 @@ function TelaInicial(props) {
             <button onClick={props.perfilEscolhido}>&#x1F493;</button>
           </Botoes>
         </ContainerBotoes>
+        <p>Banininha group</p>
       </Body>
     </div>
   );
