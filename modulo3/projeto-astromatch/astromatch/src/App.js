@@ -1,80 +1,161 @@
-import { useEffect, useState } from "react"
-import TelaInicial from "./components/TelaInicial"
-import TelaMatch from "./components/TelaMatch"
-import styled from "styled-components"
-import axios from "axios"
-
-//componente do header-----------------------------------
-  export const Header = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 auto;
-    width: 500px;
-    border: 1px solid black;
-    margin-top: 100px;
-    padding: 10px;
-    div{
-      width: 35px;
-    }
-  `
-//--------------------------------------------------------
+import { useEffect, useState } from "react";
+import TelaInicial from "./components/TelaInicial";
+import TelaMatch from "./components/TelaMatch";
+import axios from "axios";
+import { ContainerPrincipal } from "./components/Styled";
 
 function App() {
+  //Estados:
 
-//logica de renderização das telas inicial e de match-----
+  //switchCase
+  const [tela, setTela] = useState(1);
+  //telaInicial
+  const [id, setId] = useState("");
+  const [age, setAge] = useState("");
+  const [name, setName] = useState("");
+  const [photo, setPhoto] = useState("");
+  const [bio, setBio] = useState("");
+  const [escolha, setEscolha] = useState(1);
+  //telaMatch
+  const [matchs, setMatchs] = useState([]);
 
-  const [tela, setTela] = useState(1)
+  //--------------------------------------------------------
+  //logica de renderização das telas inicial e de match-----
 
   const mudarTela = () => {
-    setTela(tela + 1)
-  }
+    setTela(tela + 1);
+  };
 
   const renderizarTela = () => {
     switch (tela) {
       case 1:
-        return <TelaInicial 
-        mudarTela = {mudarTela}
-        />
+        return (
+          <TelaInicial
+            mudarTela={mudarTela}
+            nome={name}
+            idade={age}
+            foto={photo}
+            bio={bio}
+            perfilNaoEscolhido={perfilNaoEscolhido}
+            perfilEscolhido={perfilEscolhido}
+          />
+        );
       case 2:
-        return <TelaMatch
-         mudarTela = {mudarTela}
-         />
+        return (
+          <TelaMatch
+            mudarTela={mudarTela}
+            matchs={matchs}
+            limparMatch={limparMatch}
+          />
+        );
       default:
-        return setTela(1)
+        return setTela(1);
     }
-  }
+  };
 
-//----------------------------------------------------------
-//logica de comunicaçao com a Api para pegar os perfis -----
+  //----------------------------------------------------------
+  //logica de comunicaçao com a Api para PEGAR o perfil ------
 
-  const urlFixa = `https://us-central1-missao-newton.cloudfunctions.net/astroMatch/:aluno`
-  
+  const urlFixa =
+    "https://us-central1-missao-newton.cloudfunctions.net/astroMatch/marco";
+
   const pegarPerfil = () => {
-    const urlVariavel = `/person`
-    axios.get(urlFixa+urlVariavel, {
-      headers:{
-        Authorization: "marco-raphael-carver"
-      }
-    })
-    .then((res)=>{
-      console.log(res)
-    })
-    .catch((err)=>{
-      console.log(err.response)
-    })
-  }
+    const urlVariavel = "/person";
+    axios
+      .get(urlFixa + urlVariavel)
+      .then((res) => {
+        setId(res.data.profile.id);
+        setAge(res.data.profile.age);
+        setName(res.data.profile.name);
+        setPhoto(res.data.profile.photo);
+        setBio(res.data.profile.bio);
+      })
+      .catch((err) => {
+        alert(
+          "ocorreu um erro, por favor, tente novamente ou limpe seus matchs"
+        );
+      });
+  };
 
-  useEffect(()=>{
-    pegarPerfil()
-  })
-//------------------------------------------------------------
+  useEffect(() => {
+    pegarPerfil();
+  }, [escolha]);
 
-  return (
-    <div>
-      {renderizarTela()}
-    </div>
-  )
+  //----------------------------------------------------------
+  //logica de comunicaçao com a Api para ESCOLHER o perfil ---
+
+  const perfilEscolhido = () => {
+    const urlVariavel = "/choose-person";
+    const body = {
+      id: id,
+      choice: true,
+    };
+    axios
+      .post(urlFixa + urlVariavel, body)
+      .then((res) => {
+        setEscolha(escolha - 1);
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
+  };
+
+  //-----------------------------------------------------------
+  //Logica de comunicaçao com a Api para nao escolher o perfil-
+
+  const perfilNaoEscolhido = () => {
+    const urlVariavel = "/choose-person";
+    const body = {
+      id: id,
+      choice: false,
+    };
+    axios
+      .post(urlFixa + urlVariavel, body)
+      .then((res) => {
+        setEscolha(escolha + 1);
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
+  };
+
+  //----------------------------------------------------------
+  //Logica de comunicaçao com a Api para mostrar os matchs----
+
+  const mostrarMatch = () => {
+    const urlVariavel = "/matches";
+    axios
+      .get(urlFixa + urlVariavel)
+      .then((res) => {
+        setMatchs(res.data.matches);
+      })
+      .catch((err) => {
+        console.log(err.response);
+      });
+  };
+
+  useEffect(() => {
+    mostrarMatch();
+  }, [escolha, tela]);
+
+  //----------------------------------------------------------
+  //Limpar perfis curtidos------------------------------------
+
+  const limparMatch = () => {
+    const urlVariavel = "/clear";
+    axios
+      .put(urlFixa + urlVariavel)
+      .then((res) => {
+        alert("Matchs Limpos");
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+      });
+  };
+
+  //Renderizaçao do App.js------------------------------------
+  return <ContainerPrincipal>{renderizarTela()}</ContainerPrincipal>;
 }
 
-export default App
+export default App;
+//--------------------------------------------------------------
