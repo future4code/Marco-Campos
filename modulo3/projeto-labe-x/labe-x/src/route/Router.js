@@ -1,19 +1,20 @@
-import { BrowserRouter, Routes , Route } from "react-router-dom"
+import { BrowserRouter, Switch , Route } from "react-router-dom"
+import  AdminHomePage  from "../pages/AdminHomePage"
+import  ApplicationFormPage  from "../pages/ApplicationFormPage"
+import  CreateTripPage  from "../pages/CreateTripPage"
+import  HomePage  from "../pages/HomePage"
+import  ListTripsPage  from "../pages/ListTripsPage"
+import  LoginPage  from "../pages/LoginPage"
+import  TripDetailsPage  from "../pages/TripDetailsPage"
 
-import { AdminHomePage } from "../pages/AdminHomePage"
-import { ApplicationFormPage } from "../pages/ApplicationFormPage"
-import { CreateTripPage } from "../pages/CreateTripPage"
-import { HomePage } from "../pages/HomePage"
-import { ListTripsPage } from "../pages/ListTripsPage"
-import { LoginPage } from "../pages/LoginPage"
-import { TripDetailsPage } from "../pages/TripDetailsPage"
- 
-export const Router = () => {
+
+function Router () {
   return (
+
       <BrowserRouter>
-        <Routes>
+        <Switch>
         
-          <Route exact path={"/"}>
+          <Route exact path={"/"} >
             <HomePage/>
           </Route>
         
@@ -33,7 +34,7 @@ export const Router = () => {
             <AdminHomePage/>
           </Route>
         
-          <Route exact path={"/admin/trips/:id"}>          {/*add o id da pag dps no path params */}
+          <Route exact path={`/admin/trips/id`}>     
             <TripDetailsPage/>
           </Route>
         
@@ -41,7 +42,8 @@ export const Router = () => {
             <CreateTripPage/>
           </Route>
 
-        </Routes>    
+        </Switch>    
       </BrowserRouter>
   )
 }
+export default Router

@@ -1,5 +1,6 @@
 import React from "react"
-import { Router } from "./route/Router"
+import  Router  from "./route/Router"
+
 
 const App = () => {
   return (
@@ -9,4 +10,4 @@ const App = () => {
   )
 }
 
-export default App()
+export default App
