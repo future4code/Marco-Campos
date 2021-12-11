@@ -1,9 +1,46 @@
 import {Body, Header, Logo} from '../components/Styled'
 import { useHistory } from "react-router-dom"
+import { useState } from 'react'
+import axios from 'axios'
+
 
 function LoginPage () {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  const onChangeEmail = (e) => {
+    setEmail(e.target.value)
+  }
+
+  const onChangePassword = (e) => {
+    setPassword(e.target.value)
+  }
+
+  const OnClickLogin = () =>{
+    const url = "https://us-central1-labenu-apis.cloudfunctions.net/labeX/marco/login"
+    const body = {
+      email: email,
+      password: password
+    }
+    axios
+    .post(url,body)
+    .then((res)=>{
+      goToAdminHomePage()
+    })
+    .catch((err)=>{
+      alert("E-mail ou senha incorretos, tente novamente!")
+    }) 
+
+    
+    setEmail("")
+    setPassword("")
+  }
+
   const history = useHistory()
 
+  const goToAdminHomePage = () => {
+        history.push("/admin/trips/list")
+      }
   const goToHomePage = () => {
     history.push("/")
   }
@@ -11,6 +48,7 @@ function LoginPage () {
   const goBack = () => {
     history.goBack()
   }
+
     return (
       <div>
         <Header>
@@ -32,11 +70,19 @@ function LoginPage () {
           <h1>Login:</h1>
           <input
           placeholder='E-mail'
+          value={email}
+          onChange={onChangeEmail}
+          type="email"
           ></input>
+
           <input
-          placeholder='Senha'
+          placeholder='Password'
+          value={password}
+          onChange={onChangePassword}
+          type="password"
           ></input>
-          <button>Entrar</button>
+
+          <button onClick={OnClickLogin}>Entrar</button>
         </Body>
       </div>
     )

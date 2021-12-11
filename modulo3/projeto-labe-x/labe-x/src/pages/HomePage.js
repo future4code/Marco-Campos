@@ -1,41 +1,52 @@
-import {Body, Header, Logo} from '../components/Styled'
-import { useHistory } from "react-router-dom"
+import { Body, Header, Logo, TextoBody } from "../components/Styled";
+import { useHistory } from "react-router-dom";
+import Button from '@mui/material/Button';
 
-function HomePage () {
+function HomePage() {
   const history = useHistory();
 
   const goToLoginPage = () => {
     history.push("/login");
-  }
+  };
 
   const goToListTripPage = () => {
     history.push("/trips/list");
-  }
+  };
 
-    return (
-      <div>
+  return (
+    <div>
       <Header>
         <Logo>
-        <img 
-        src="https://image.freepik.com/vetores-gratis/astronauta-trabalhando-no-laptop-e-escrevendo-a-ilustracao-dos-desenhos-animados-conceito-de-negocio-de-ciencia-isolado-estilo-flat-cartoon_138676-3447.jpg"
-        alt="Logo Astronalta"
-        width="80px"
-        />
-        <h1>LABE X</h1>
+          <img
+            src="https://image.freepik.com/vetores-gratis/astronauta-trabalhando-no-laptop-e-escrevendo-a-ilustracao-dos-desenhos-animados-conceito-de-negocio-de-ciencia-isolado-estilo-flat-cartoon_138676-3447.jpg"
+            alt="Logo Astronalta"
+            width="80px"
+          />
+          <h1>LABE X</h1>
         </Logo>
-        <div>        
-        <button onClick={goToListTripPage }>Viagens</button>
-        <button onClick={goToLoginPage}>Login</button>
-        </div>
+        <div></div>
       </Header>
-      
-      <Body>
-        <h2>Home Page:</h2>
-        <p> Para o usuário escolher entre Área Administrativa e Lista de Viagens</p>
 
+      <Body>
+        <TextoBody>
+          <h2>Seja Bem Vindx A </h2>
+          <h1>LABE X</h1>
+          <p>
+            Se Você Quer Fazer Uma Viagem Interestelar Acabou De Achar O Seu
+            Lugar!!!
+          </p>
+          <div>
+            <Button variant="contained" onClick={goToListTripPage}>Viagens</Button>
+            <Button variant="contained" onClick={goToLoginPage}>Login</Button>
+          </div>
+        </TextoBody>
+
+        <img
+          src="https://image.freepik.com/vetores-gratis/astronauta-bonito-flutuando-com-ilustracao-de-icone-de-vetor-de-balao-de-ovni-conceito-de-icone-de-tecnologia-de-ciencia-vetor-premium-isolado-estilo-flat-cartoon_138676-3839.jpg"
+          alt=""
+        />
       </Body>
-      </div>
-    )
-  }
-export default HomePage
-  
+    </div>
+  );
+}
+export default HomePage;

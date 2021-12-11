@@ -1,7 +1,11 @@
-import {Body, Header, Logo} from '../components/Styled'
+import {Body, BodyCard, CardViagem, Header, Logo} from '../components/Styled'
 import { useHistory } from "react-router-dom"
+import axios from 'axios'
+import { useEffect, useState } from 'react'
 
 function ListTripsPage () {
+  const [viagens, setViagens] = useState([])
+
   const history = useHistory()
 
   const goToHomePage = () => {
@@ -15,6 +19,37 @@ function ListTripsPage () {
   const goToApplicationFormPage = () => {
     history.push("/trips/application")
   }
+    
+    const getTrips = () => {
+      const url ="https://us-central1-labenu-apis.cloudfunctions.net/labeX/marco/trips"
+      
+      axios
+      .get(url)
+      .then((res)=>{
+        setViagens(res.data.trips)
+      })
+      .catch((err)=>{
+        alert("Tivemos um erro no carregamento da pagina, por favor, tente novamente")
+      })
+    }
+
+  useEffect(()=>{ 
+    getTrips()
+  },[])
+
+  const viagem = viagens.map((trip)=>{
+    return(
+      <CardViagem>
+        <p> <b>nome:</b> {trip.name}</p>
+        <p> <b>descrição:</b> {trip.description}</p>
+        <p> <b>planeta:</b> {trip.planet}</p>
+        <p> <b>duração:</b> {trip.durationInDays}</p>
+        <p> <b>data:</b> {trip.date}</p>
+        <p>{trip.id}</p>
+      </CardViagem>
+    )
+  })
+
   return (
     <div>
       <Header>
@@ -33,8 +68,9 @@ function ListTripsPage () {
         </div>
       </Header>
       <Body>
-        <h2>List Trips Page:</h2>
-        <p> Para vermos todas as viagens</p>
+        <BodyCard>
+        {viagem}
+        </BodyCard>
       </Body>
     </div>
   )
