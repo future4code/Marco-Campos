@@ -1,0 +1,139 @@
+Exercício 1-
+
+a) Explique o comando - ALTER TABLE Actor DROP COLUMN salary;
+
+    -   Altera a tabela para apagar a coluna salary
+
+b) Explique o comando - ALTER TABLE Actor CHANGE gender sex VARCHAR(6);
+
+    -   Altera a tabela para a coluna gender pra se chamar sex e somente aceitar strings de ate 6 caracteres
+
+c) Explique o comando - ALTER TABLE Actor CHANGE gender gender VARCHAR(255);
+
+    -   Altera a tabela para aceitar ate 255 caracteres
+
+d) Altere a coluna `gender` da tabela `ACTOR` para que ele aceite strings com até 100 caracteres*
+    
+    -   ALTER TABLE Actor CHANGE gender gender VARCHAR(100);
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Exercício 2-
+
+a) Escreva uma query que atualize o nome e a data de nascimento do ator com o id 003
+
+    -   UPDATE Actor
+        SET name = "Tobey Maguire" , birth_date = "1975-06-27"
+        WHERE id = "003";
+
+b) Escreva uma query que atualize o nome da atriz Juliana Paes para JULIANA PAES. Então, escreva outra query para voltar ao nome anterior.
+
+    -   UPDATE Actor
+        SET name = "JULIANA PAES"
+        WHERE name = "juliana paes";
+
+    -   UPDATE Actor
+        SET name = "juliana paes"
+        WHERE name = "JULIANA PAES";
+
+c) Escreva uma query que atualize todas as informações do ator com o id 005
+
+    -   UPDATE Actor
+        SET id = "123", name = "Tom Holland", salary = 1000000, birth_date = "1996-06-01", gender = "male"
+        WHERE id = "005";
+
+d) Escreva uma query em que você tente atualizar um dado da tabela que não existe (com um id inválido, por exemplo). Teste, anote e explique o resultado. 
+
+    -   0 row(s) affected Rows matched: 0  Changed: 0  Warnings: 0
+    -   Nao deu erro e nem fez nenhuma alteraçao
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Exercício 3-
+
+a) *Escreva uma query que apague a atriz com o nome `Fernanda Montenegro`*
+
+    -   DELETE FROM Actor
+        WHERE name = "Fernanda Montenegro"; 
+
+b) *Escreva uma query que apague todos os atores (do gênero `male`) com o salário maior do que R$1.000.000,00*
+
+    -   DELETE FROM Actor
+        WHERE salary = 1000000
+        AND gender = 'male';
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Exercício 4-
+
+a) *Escreva uma query que pegue o maior salário de todos os atores e atrizes*
+    
+    -   SELECT MAX(salary) from Actor;
+
+b) *Escreva uma query que pegue o menor salário das atrizes*
+    
+    -   SELECT MIN(salary) from Actor;
+
+c) *Escreva uma query que pegue a quantidade de atrizes*
+    
+    -   SELECT COUNT(*) FROM Actor WHERE gender = "female";
+
+d) *Escreva uma query que pegue a soma de todos os salários*
+
+    -   SELECT SUM(salary) FROM Actor;
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Exercício 5-
+
+a) *Releia a última query. Teste-a. Explique o resultado com as suas palavras*
+
+    -   SELECT COUNT(*), gender
+        FROM Actor
+        GROUP BY gender;
+
+    -   Retorna o numero de parametros possiveis que existem dentro da coluna gender
+
+b) *Faça uma query que retorne somente o id e o nome dos atores em ordem decrescente alfabética*
+
+    -   SELECT id, name FROM Actor ORDER BY name ASC;
+
+c) *Faça uma query que retorne todos os atores ordenados pelo salário*
+
+    -   SELECT * FROM Actor ORDER BY salary;
+
+d) *Faça uma query que retorne os atores com os três maiores salarios*
+
+    -   SELECT * FROM Actor ORDER BY salary DESC LIMIT 3;
+
+e) *Faça uma query que retorne a média de salário por gênero*
+
+    -   SELECT AVG(salary), gender FROM Actor GROUP BY gender;
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Exercício 6-
+
+a) *Altere a tabela de `Movie` e adicione um novo parâmetro: `playing_limit_date` que indique a data limite em que o filme será passado no cinema.* 
+
+    -   ALTER TABLE Movie ADD playing_limit_date DATE;
+
+b) *Altere a tabela de `Movie` para que o parâmetro `rating` possa aceitar valores não inteiros, como, por exemplo, uma avaliação `8.5`.*
+
+    -   ALTER TABLE Movie CHANGE rating rating FLOAT;
+
+c) *Atualize dois filmes de tal forma que tenhamos um que ainda esteja em cartaz e um que já tenha saído*
+
+    -   UPDATE Movie
+        SET playing_limit_date = "2020-12-31"
+        WHERE id = "001";
+
+    -   UPDATE Movie
+        SET playing_limit_date = "2020-02-02"
+        WHERE id = "002"
+
+d) *Delete algum dos filmes, mas guarde o id. Tente fazer uma query para atualizar a sinopse desse filme que você acabou de deletar (usando o mesmo id).
+ Anote o resultado e explique.*
+
+    -   DELETE FROM Movie WHERE id = "001"
+
