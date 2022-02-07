@@ -8,7 +8,7 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
-//-----------------------------------------------------------------------
+//---------------------------------------------------------------------
 let errorCode = 400
 app.post("/user", async (req: Request, res: Response): Promise<void>=>{
   try{ 
