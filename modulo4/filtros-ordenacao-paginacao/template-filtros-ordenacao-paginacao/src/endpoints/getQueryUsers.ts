@@ -22,9 +22,7 @@ export const getQueryUsers = async(req: Request,res: Response): Promise<void> =>
 
 export default async function selectQuery(query: any):Promise<any> {
    const result = await connection.raw(`
-      SELECT id, name, email, type 
-      FROM aula48_exercicio
-      WHERE nome = ${query};
+   SELECT * FROM aula48_exercicio WHERE name = "${query}";
    `)
 
    return result[0]
