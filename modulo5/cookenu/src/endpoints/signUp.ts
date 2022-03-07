@@ -36,13 +36,6 @@ export const signUp = async (req: Request, res: Response): Promise<void> => {
         res.status(errorCode = 201).send("sucesso!")
     }
     catch(error: any){
-
-        if (errorCode === 200 ) {
-           res.status(500).send({ message: "Internal server error" })
-        }
-        else {
-           res.send({ message: error.message || error.sqlMessage })
-        }
-
+           res.status(errorCode).send({ message: error.message || error.sqlMessage })
     }
 }
