@@ -1,0 +1,35 @@
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+    "name": "fran",
+    "email": "fran@fran.com",
+    "password": "1645109738351"
+}
+
+###
+
+POST http://localhost:3003/users/login
+Content-Type: application/json
+
+# {
+#     "email": "fran@fran.com",
+#     "password": "1645109738351"
+# }
+
+{
+    "email": "marco@marco.com",
+    "password": "1645109738351"
+}
+
+###
+
+POST http://localhost:3003/posts/create
+Content-Type: application/json
+
+{
+    "photo": "aaaaaaaaaaaaaa",
+    "description": "aaaaaaaaaaaa",
+    "type": "normal"
+}
+
