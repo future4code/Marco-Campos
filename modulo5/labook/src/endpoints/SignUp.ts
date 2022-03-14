@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import { connection } from "../data/connection"
+import { connection } from "../connection"
 import { generateToken } from "../services/Authenticator"
 import { hash } from "../services/HashManager"
 import { generateId } from "../services/IdGenerator"

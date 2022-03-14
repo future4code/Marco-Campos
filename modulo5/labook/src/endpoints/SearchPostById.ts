@@ -1,5 +1,5 @@
 import { Request, Response } from "express"
-import { connection } from "../data/connection"
+import { connection } from "../connection"
 import { post } from "../types/types"
 
 export const SearchPostById = async (req: Request, res: Response) => {

@@ -1,6 +1,6 @@
 import { compare } from "bcryptjs"
 import { Request, Response } from "express"
-import { connection } from "../data/connection"
+import { connection } from "../connection"
 import { generateToken } from "../services/Authenticator"
 import { user } from "../types/types"
 
