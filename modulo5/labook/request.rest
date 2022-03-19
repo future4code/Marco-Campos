@@ -1,0 +1,37 @@
+POST http://localhost:3003/users/signup
+Content-Type: application/json
+
+{
+    "name": "fran",
+    "email": "fradfd@fra.com",
+    "password": "1645109738351"
+}
+
+###
+
+POST http://localhost:3003/users/login
+Content-Type: application/json
+
+# {
+#     "email": "fran@fran.com",
+#     "password": "1645109738351"
+# }
+
+{
+    "email": "marco@marco.com",
+    "password": "1645109738351"
+}
+
+###
+
+POST http://localhost:3003/posts/create
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjEyZjQyMzU0LTI4ODctNDJjMC1iMmU2LWRmZDFlNjJmNWY5NSIsImlhdCI6MTY0NzIyODUwMCwiZXhwIjoxNjQ3MjI5OTQwfQ.ZZXnhoDZaZIyzRK23EbT9lTC_fNQ9wQIMdekWDURka4
+Content-Type: application/json
+
+
+{
+    "photo": "aaaaaaahgjkg",
+    "description": "aajhkg",
+    "type": "normal"
+}
+
