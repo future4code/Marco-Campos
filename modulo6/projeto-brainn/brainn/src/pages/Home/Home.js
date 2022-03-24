@@ -1,9 +1,50 @@
 import { Ellipse, NumberContainer, RightContainer, ScreenContainer, Sidebar } from "./Styled"
+import axios from 'axios'
 
-
+    const BASE_URL = "https://brainn-api-loterias.herokuapp.com/api/v1"
 
 
 const Home = () => {
+
+    const getLottery = () => {
+        const url = "/loterias"
+
+        axios.get(BASE_URL+url)
+        .then((res)=>{
+            console.log("Loterias",res.data)
+        })
+        .catch((res)=>{
+            console.log(res)
+        })
+    }
+    getLottery()
+
+    const getLotteryContest = () =>{
+        const url = "/loterias-concursos"
+
+        axios.get(BASE_URL+url)
+        .then((res)=>{
+            console.log("Concursos", res.data)
+        })
+        .catch((res)=>{
+            console.log(res)
+        })
+    }
+    getLotteryContest()
+
+    const getContest = (id) => {
+        const url = `/concursos/${id}`
+
+        axios.get(BASE_URL+url)
+        .then((res)=>{
+            console.log("Concursos por id", res.data)
+        })
+        .catch((res)=>{
+            console.log(res)
+        })
+    }
+    getContest("2359")
+    
     return (
     
         <ScreenContainer>
