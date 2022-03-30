@@ -7,6 +7,7 @@ export async function createUser (req: Request, res: Response): Promise<void> {
    try {
       const {name, email, password} = req.body
       const id = new Date().getTime().toString()
+      
       const result = await connection.raw(`
       INSERT INTO User_ecommerce 
       VALUES (
