@@ -1,43 +1,72 @@
 import { Request, Response } from "express"
 import { connection } from "../connection"
-import { ProductInputDTO } from "../model/Product"
+import { ProductInputDTO, ProductNameInputDTO, ProductTagsInputDTO } from "../model/Product"
 
 
-const TABLE_NAME = "amaro_product"
+const TABLE_PRODUCT = "amaro_product"
+const TABLE_TAGS = "amaro_tags"
 
 export const CreateProduct  = async (req: Request ,res: Response): Promise<void> => {
    
     try{
-        let message = "Success!"
+        let message = "Produto cadastrado com sucesso!"
 
-        const input: ProductInputDTO = {
+        const inputName: ProductNameInputDTO = {
             id: req.body.id,
-            name: req.body.name, 
+            name: req.body.name 
+        }
+        const inputTags: ProductTagsInputDTO = {
             tags:req.body.tags
         }
 
-        if(!input.id || !input.name || !input.tags){
+        const id = req.body.id
+        
+        if(!inputName.id || !inputName.name || !inputTags.tags){
             throw new Error("passe corretamente 'id', 'name' e 'tags' no Body")
         }
 
-        if(input.tags.length === 0){
+        if(inputTags.tags.length === 0){
             throw new Error("passe uma 'tag' válida")
         }
 
-        const id = await connection(`${TABLE_NAME}`)
+        const id2 = await connection(`${TABLE_PRODUCT}`)
         .select("*")
-        .where({id: input.id})
+        .where({id})
 
-        if(!id){
+        console.log(id2)
+
+        if(id2[0]){
             throw new Error("ja existe um produto com esse id!");
         }
 
-        await connection(`${TABLE_NAME}`)
-        .insert(`
-        ${input.id},
-        ${input.name},
-        ${input.tags}
+        await connection.raw(`
+            INSERT INTO ${TABLE_PRODUCT}
+            VALUES(
+                "${inputName.id}",
+                "${inputName.name}"
+            );
         `)
+
+        const postTag = async (id: string, tag: string) =>{
+            await connection.raw(`
+            INSERT INTO ${TABLE_TAGS}
+            VALUES(
+                "${id}",
+                "${tag}"
+            )
+            `)
+        }
+
+        inputTags.tags.forEach((tag)=>{
+            postTag(
+                inputName.id,
+                tag.toLocaleLowerCase()      
+                    .replace(/[óôõò]/gi,"o")
+                    .replace(/[áàâã]/gi,"a")
+                    .replace(/[íîì]/gi,"i")
+                    .replace(/[úùû]/gi,"u")
+                    .replace(/[éèê]/gi,"e"))
+        })
 
         res.status(201).send(message)
     } catch (error) {
