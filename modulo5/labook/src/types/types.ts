@@ -1,6 +1,6 @@
-export type authenticationData = {
-    id: string
- }
+   export type authenticationData = {
+      id: string
+   }
  
  export type user = {
     id: string,
