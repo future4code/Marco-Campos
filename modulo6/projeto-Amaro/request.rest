@@ -1,0 +1,17 @@
+
+
+POST http://localhost:3003/product
+Content-Type: application/json
+
+{
+    "id": "007",
+    "name": "vestido preto ",
+    "tags": ["algodao","bÁsica", "CaSual", "pReTo"]
+}
+
+###
+
+
+GET http://localhost:3003/product?id=001
+# Content-Type: application/json
+
