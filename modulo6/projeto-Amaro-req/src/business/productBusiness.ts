@@ -48,25 +48,6 @@ class ProductBusiness {
 
         return product
     }
-
-    getProductByName = async (name:string): Promise<void> => {
-        if(!name){
-            throw new Error("passe o 'name' corretamente no body")
-        }
-
-    }
-
-    getProductByTag = async (tag:string): Promise<void> => {
-        if(!tag){
-            throw new Error("passe a 'tag' corretamente no body")
-        }
-
-    }
-
-    getAllProduct = async (): Promise<void> => {
-
-    }
-
 }
 
 export const productBusiness = new ProductBusiness()
