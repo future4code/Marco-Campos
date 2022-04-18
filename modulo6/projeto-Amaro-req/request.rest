@@ -1,0 +1,21 @@
+POST http://localhost:3003/product
+Content-Type: application/json
+
+{
+    "id": "009",
+    "name": "blusa do botafogo",
+    "tags": ["botafogo","bÁsica", "CaSual", "pReTo", "branco"]
+}
+
+###
+
+GET http://localhost:3003/product/id
+Content-Type: application/json
+
+{
+    "id": "009"
+}
+
+###
+
+GET http://localhost:3003/product
