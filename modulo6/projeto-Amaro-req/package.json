@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "migrations": "tsc && node ./build/migrations.js",
+    "start": "npm run build && node --inspect ./build/index.js",
+    "dev": "clear && ts-node-dev ./src/index.ts",
+    "build": "clear && echo \"Transpiling files...\" && tsc && echo \"Done!\" ",
+    "test": "jest"
   },
   "author": "Marco Raphael",
   "license": "ISC",

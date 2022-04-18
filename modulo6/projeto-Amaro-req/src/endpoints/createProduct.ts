@@ -15,9 +15,10 @@ export const CreateProduct = async (req: Request,res: Response): Promise<void> =
             throw new Error("passe uma 'tag' válida");
         }
 
-        const verify = await connection.raw(`
-            SELECT * FROM amaro_product WHERE id = "${id}";
-        `)
+        const verify = await connection("amaro_product")
+        .select("*")
+        .where({id})
+
 
         if(verify[0]){
             throw new Error("ja existe um produto com esse id!");
