@@ -1,0 +1,34 @@
+
+GET http://localhost:3003/pokemon/id
+Content-Type: application/json
+
+{
+    "id": "251"
+}
+
+###
+
+GET http://localhost:3003/pokemon/name
+Content-Type: application/json
+
+{
+    "name": "pikachu"
+}
+
+###
+
+GET http://localhost:3003/pokemon/type
+Content-Type: application/json
+
+{
+    "type": "water"
+}
+
+###
+
+GET http://localhost:3003/pokemon/generation
+Content-Type: application/json
+
+{
+    "generation": "1"
+}
